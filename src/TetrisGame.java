@@ -311,10 +311,14 @@ public class TetrisGame extends JPanel {
             JFrame frame = new JFrame("Tetris");
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             frame.setResizable(false);
-            frame.add(new TetrisGame(), BorderLayout.CENTER);
+            
+            TetrisGame game = new TetrisGame();
+            frame.add(game);
             frame.pack();
             frame.setLocationRelativeTo(null);
             frame.setVisible(true);
+            
+            game.requestFocusInWindow();
         });
     }
 

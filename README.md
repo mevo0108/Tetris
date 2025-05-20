@@ -2,6 +2,23 @@
 
 A classic Tetris implementation in Java, featuring modern gameplay mechanics and a user-friendly interface.
 
+## Running the Game
+
+The easiest way to run the game is to:
+1. Double-click `run.bat`
+2. The game will start immediately
+
+Alternative methods:
+- From the command line: `java -jar target/tetris.jar`
+- From an IDE: Open the project in your preferred Java IDE and run the `TetrisGame` class
+
+## Building the Game
+
+To build the game from source:
+1. Make sure you have JDK 8 or higher installed
+2. Run `build.bat`
+3. The executable JAR will be created in the `target` directory
+
 ## Features
 
 - Classic Tetris gameplay
@@ -17,16 +34,6 @@ A classic Tetris implementation in Java, featuring modern gameplay mechanics and
 - Visual Studio Code (recommended) or any Java IDE
 - Java Extension Pack for VS Code (if using VS Code)
 
-## Setup and Installation
-
-1. Download the project files
-2. Open the project in your preferred IDE
-
-3. For VS Code users:
-   - Install the "Extension Pack for Java" extension
-   - The project includes launch configurations in `.vscode/launch.json`
-   - Press F5 to run the game or use the Run and Debug panel
-
 ## How to Play
 
 - Use arrow keys to control the falling pieces:
@@ -35,6 +42,10 @@ A classic Tetris implementation in Java, featuring modern gameplay mechanics and
   - Down Arrow: Move piece down faster
   - Up Arrow: Rotate piece
 - Complete lines to score points
+  - 1 line: 100 points
+  - 2 lines: 300 points
+  - 3 lines: 500 points
+  - 4 lines: 800 points
 - The game ends when pieces stack up to the top
 
 ## Project Structure
@@ -45,6 +56,8 @@ Tetris/
 │   └── TetrisGame.java    # Main game implementation
 ├── .vscode/
 │   └── launch.json        # VS Code launch configurations
+├── build.bat             # Build script
+├── run.bat              # Run script (use this to start the game)
 └── README.md             # This file
 ```
 
