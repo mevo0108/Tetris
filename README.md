@@ -2,8 +2,6 @@
 
 A modern implementation of the classic Tetris game in Java. Experience the timeless puzzle game with smooth controls, score tracking, and level progression.
 
-![Tetris Game](screenshots/gameplay.png)
-
 ## 🎯 Features
 
 - 🎮 Classic Tetris gameplay with modern controls
