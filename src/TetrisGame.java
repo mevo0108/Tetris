@@ -288,18 +288,29 @@ public class TetrisGame extends JPanel {
     }
 
     private void spawnNewPiece() {
-        Random random = new Random();
-        int type = random.nextInt(7) + 1; // Generate a random type from 1 to 7
-        int[][] shape = TetrisPiece.SHAPES[type - 1]; // Subtract 1 to match array index
-
-        int initialCol = (COLS - shape[0].length) / 2;
-        int initialRow = 0;
-
-        currentPiece = new TetrisPiece(type, shape, initialRow, initialCol);
-        // Generate the next piece
-        int nextType = random.nextInt(7) + 1;
-        int[][] nextShape = TetrisPiece.SHAPES[nextType - 1];
-        nextPiece = new TetrisPiece(nextType, nextShape, 0, 0);
+        if (nextPiece == null) {
+            // First piece of the game
+            Random random = new Random();
+            int type = random.nextInt(7) + 1;
+            int[][] shape = TetrisPiece.SHAPES[type - 1];
+            int initialCol = (COLS - shape[0].length) / 2;
+            currentPiece = new TetrisPiece(type, shape, 0, initialCol);
+            
+            // Generate the next piece
+            int nextType = random.nextInt(7) + 1;
+            int[][] nextShape = TetrisPiece.SHAPES[nextType - 1];
+            nextPiece = new TetrisPiece(nextType, nextShape, 0, 0);
+        } else {
+            // Use the next piece as current piece
+            int initialCol = (COLS - nextPiece.getShape()[0].length) / 2;
+            currentPiece = new TetrisPiece(nextPiece.getType(), nextPiece.getShape(), 0, initialCol);
+            
+            // Generate new next piece
+            Random random = new Random();
+            int nextType = random.nextInt(7) + 1;
+            int[][] nextShape = TetrisPiece.SHAPES[nextType - 1];
+            nextPiece = new TetrisPiece(nextType, nextShape, 0, 0);
+        }
     }
 
     private boolean isGameOver() {
